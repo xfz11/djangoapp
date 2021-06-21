@@ -22,7 +22,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # DBHOST is only the server name, not the full URL
-hostname = os.environ['RESOURCECONNECTOR_DB_HOST'].split('.')[0]
+# hostname = os.environ['RESOURCECONNECTOR_DB_HOST'].split('.')[0]
+hostname = 'testmysqlzxf'
 
 # Configure Postgres database; the full username is username@servername,
 # which we construct using the DBHOST value.
