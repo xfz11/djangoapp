@@ -48,7 +48,10 @@ DATABASES = {
 #             'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
 #         }
         'OPTIONS': {
-            'ssl': {'ca': '/etc/ssl/certs/ca-certificates.crt'}
+            'ssl': {
+#                 'ca': '/etc/ssl/certs/ca-certificates.crt'
+                'sslmode': 'require'
+            }
         }
         
     }
