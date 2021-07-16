@@ -22,31 +22,19 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # DBHOST is only the server name, not the full URL
-# hostname = os.environ['RESOURCECONNECTOR_DB_HOST'].split('.')[0]
-hostname = 'testmysqlzxf'
+hostname = os.environ['RESOURCECONNECTOR_DB_HOST'].split('.')[0]
+
 
 # Configure Postgres database; the full username is username@servername,
 # which we construct using the DBHOST value.
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ['RESOURCECONNECTOR_DB_NAME'],
-#         'HOST': os.environ['RESOURCECONNECTOR_DB_HOST'],
-#         'USER': os.environ['RESOURCECONNECTOR_DB_USER'],
-#         'PASSWORD': os.environ['RESOURCECONNECTOR_DB_PASSWORD'] 
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'testDB',
-        'USER': 'zxf@testmysqlzxf',
-        'PASSWORD': 'zxcv231!',
-        'HOST': 'testmysqlzxf.mysql.database.azure.com',
+        'NAME': os.environ['RESOURCECONNECTOR_DB_NAME'],
+        'USER': os.environ['RESOURCECONNECTOR_DB_USER'],
+        'PASSWORD': os.environ['RESOURCECONNECTOR_DB_PASSWORD'],
+        'HOST': os.environ['RESOURCECONNECTOR_DB_HOST'],
         'PORT': '3306',
-#         'OPTIONS': {
-#             'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}
-#         }
         'OPTIONS': {
             'ssl': {
 #                 'ca': '/etc/ssl/certs/ca-certificates.crt'
